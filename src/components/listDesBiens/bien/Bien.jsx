@@ -5,9 +5,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Bien(props) {
-    ;
+    const navigate = useNavigate();
+
   return (
     <Card className="bien" sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -25,7 +29,7 @@ export default function Bien(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">plus de details</Button>
+        <Button size="small" onClick={() =>navigate('/bienDetails')}>plus de details</Button>
         <Button size="small">delete</Button>
       </CardActions>
     </Card>
