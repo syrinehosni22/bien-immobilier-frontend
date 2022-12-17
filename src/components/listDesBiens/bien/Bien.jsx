@@ -7,10 +7,15 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { redirect } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import {deleteBien} from "../../../xhr/BienRequets"
 
 
 export default function Bien(props) {
     const navigate = useNavigate();
+    const HandleDelete = (id) => {
+     // deleteBien(props.id);
+      console.log("id",props.id);
+    }
 
   return (
     <Card className="bien" sx={{ maxWidth: 345 }}>
@@ -29,8 +34,8 @@ export default function Bien(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={() =>navigate('/bienDetails')}>plus de details</Button>
-        <Button size="small">delete</Button>
+        <Button size="small" onClick={() =>navigate('/bienDetails/'+props.id)}>plus de details</Button>
+        <Button size="small"onClick={HandleDelete}>delete</Button>
       </CardActions>
     </Card>
   );

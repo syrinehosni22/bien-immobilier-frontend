@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import React from "react"
 import Header from "../header/Header"
 import Bien from "../listDesBiens/bien/Bien";
+import {saveNewBien}from "../../xhr/BienRequets"
 
 export default function AddBien(){
   const [bien,setBien]=React.useState({});
@@ -15,6 +16,7 @@ export default function AddBien(){
   }
   const HandleSave=()=>{
     console.log("save",bien);
+    // saveNewBien(bien);
   }
     return(
         <>

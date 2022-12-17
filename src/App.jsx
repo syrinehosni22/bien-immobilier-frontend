@@ -14,7 +14,7 @@ function App() {
         <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<BienListing />}/>
-        <Route exact path="bienDetails" element={<BienDetails />} />
+        <Route exact path="bienDetails/:bienId" element={<BienDetails />} />
         <Route exact path="addBien" element={<AddBien />} />
       </Routes>
     </BrowserRouter>

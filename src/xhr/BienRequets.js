@@ -1,14 +1,17 @@
 import axios from 'axios';
 
-const loadAllBien =()=>{
+export  function loadAllBien() {
     axios.get("https:127.0.0.1:8080/biens");
 }
-const loadBienWithId=(id)=>{
-    axios.get("https:127.0.0.1:8080/biens"+id)
+export  function  loadBienWithId (id) {
+    axios.get("https:127.0.0.1:8080/biens"+id);
 }
-const saveNewBien = (bien) => {
+export  function  saveNewBien(bien)  {
     axios.post("https:127.0.0.1:8080/biens/",bien);
 }
-const saveBien = (bien) => {
+export  function  saveBien  (bien)  {
     axios.put("https:127.0.0.1:8080/biens/",bien);
+}
+export  function  deleteBien  (id)  {
+    axios.delete("https:127.0.0.1:8080/biens/"+id);
 }
