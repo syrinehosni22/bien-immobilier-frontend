@@ -5,6 +5,7 @@ import Bien from "./bien/Bien";
 export default function BienListing(){
     const listBiens=[{name:"bien",description:"somedescription ttttttttttttttttttttttttttttttttt",img:"https://www.shutterstock.com/fr/image-photo/residential-building-public-green-park-during-382666645"},
     {name:"bien",description:"some description tttttttttttttttttttttttttttttttttttttttt",img:"https://www.shutterstock.com/fr/image-photo/residential-building-public-green-park-during-382666645"},
+    {name:"bien",description:"somedescription tttttttttttttttttttttttttttttttttttttt",img:"https://www.shutterstock.com/fr/image-photo/residential-building-public-green-park-during-382666645"},
     {name:"bien",description:"somedescription tttttttttttttttttttttttttttttttttttttt",img:"https://www.shutterstock.com/fr/image-photo/residential-building-public-green-park-during-382666645"}];
 
     return(
