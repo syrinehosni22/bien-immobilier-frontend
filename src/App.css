@@ -13,3 +13,15 @@
 .MuiBox-root .MuiTypography-root {
   margin: 5px;
 }
+
+.list-des-clients>.client-listing-component {
+  box-shadow: 10px 5px 5px 5px gray;
+  border-radius: 5%;
+  padding: 10px;
+}
+
+.agents-listing-component {
+  box-shadow: 10px 5px 5px 5px gray;
+  border-radius: 5%;
+  padding: 10px;
+}

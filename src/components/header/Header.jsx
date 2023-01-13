@@ -15,7 +15,7 @@ import Typography from '@mui/material/Typography';
 import { Link } from '@mui/material';
 
 const drawerWidth = 240;
-const navItems = [{title:"Liste des Biens",path:"/"}, {title:"Ajouter un Bien",path:"/addBien"}];
+const navItems = [{title:"Liste des Biens",path:"/"}, {title:"Ajouter un Bien",path:"/addBien"},{title:"Listes des clients ",path:"/clients"},{title:"Listes des agents ",path:"/agents"}];
 
 
 function Header(props) {
