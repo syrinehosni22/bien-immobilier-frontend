@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../header/Header";
-import {loadAllBien}from "../../xhr/BienRequets"
-import Client from "./Client";
+import Header from "../components/header/Header";
+import {loadAllBien}from "../xhr/BienRequets"
+import Client from "../components/Client/Client";
 
 export default function ClientListing(){
     const ListCliens=[{id:1,name:"amira Dhflaoui",profession:"devloppeur"},

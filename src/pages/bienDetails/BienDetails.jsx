@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../header/Header";
+import Header from "../../components/header/Header";
 import {useEffect,useState} from "react";
 import {loadBienWithId}from "../../xhr/BienRequets"
 import { useParams} from 'react-router-dom';

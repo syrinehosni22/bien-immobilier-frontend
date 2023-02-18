@@ -1,7 +1,7 @@
 
  import React from 'react'
-import Header from '../../header/Header';
-import Agent from '../Agent';
+import Header from '../../components/header/Header';
+import Agent from '../../components/Agent/Agent';
  
  export default function AgentListing() {
   const ListAgents=[{id:1,name:"amira Dhflaoui",profession:"devloppeur"},

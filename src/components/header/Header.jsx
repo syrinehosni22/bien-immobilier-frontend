@@ -13,14 +13,19 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link } from '@mui/material';
+import { useSelector } from 'react-redux';
+
 
 const drawerWidth = 240;
-const navItems = [{title:"Liste des Biens",path:"/"}, {title:"Ajouter un Bien",path:"/addBien"},{title:"Listes des clients ",path:"/clients"},{title:"Listes des agents ",path:"/agents"}];
+const navItems = [{title:"Liste des Biens",path:"/"}, {title:"Ajouter un Bien",path:"/addBien"},{title:"Listes des clients ",path:"/clients"},{title:"Listes des agents ",path:"/agents"},{title:"Login ",path:"/login"}];
+const navItemsAdmin = [{title:"Liste des Biens",path:"/"}, {title:"Ajouter un Bien",path:"/addBien"},{title:"Listes des clients ",path:"/clients"},{title:"Listes des agents ",path:"/agents"}];
 
 
 function Header(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const ROLE=useSelector(state => state.role);
+
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -33,7 +38,15 @@ function Header(props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item,index) => (
+        {ROLE=="admin"?
+        navItemsAdmin.map((item,index) => (
+          <ListItem key={index} disablePadding>
+            <ListItemButton sx={{ textAlign: 'center' }}>
+              <ListItemText primary={item.title} />
+            </ListItemButton>
+          </ListItem>
+        )):
+        navItems.map((item,index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
               <ListItemText primary={item.title} />

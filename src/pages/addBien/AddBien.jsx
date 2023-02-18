@@ -2,8 +2,8 @@ import { Box, TextField } from "@mui/material"
 import Button from '@mui/material/Button';
 
 import React from "react"
-import Header from "../header/Header"
-import Bien from "../listDesBiens/bien/Bien";
+import Header from "../../components/header/Header"
+import Bien from "../../components/listDesBiens/bien/Bien";
 import {saveNewBien}from "../../xhr/BienRequets"
 
 export default function AddBien(){
