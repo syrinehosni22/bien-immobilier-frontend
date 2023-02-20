@@ -11,7 +11,8 @@ import { createStore } from 'redux';
 import {userReducer} from "./redux/reducer"
 import { Provider } from 'react-redux'
 import store from './redux/store';
-
+import { PersistGate } from 'redux-persist/integration/react'
+import {persistor} from './redux/store'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   return (
     <div className="App">
       <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
           <Routes>
             <Route exact path="/" element={<BienListing />}/>
@@ -29,6 +31,7 @@ function App() {
             <Route path="/login" element={<LoginForm/>}/>
       </Routes>
       </BrowserRouter>
+      </PersistGate>
     </Provider>
     </div>
   );

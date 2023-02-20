@@ -5,6 +5,7 @@ import Bien from "../components/listDesBiens/bien/Bien";
 import {loadAllBien}from "../xhr/BienRequets"
 import {useEffect,useState} from "react";
 import axios from 'axios';
+import {store}from '../redux/store'
 
 
 export default function BienListing(){
@@ -15,10 +16,12 @@ export default function BienListing(){
    const [listDesBiens,setListDesBiens]=useState([]);
 
     useEffect(() => {
+      const token = store.getState().token;
+       console.log(token);
         
         axios.get('http://localhost:8088/api/bienImmobilier/findAll/', {
             headers: {
-              Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWlhQGdtYWlsLmNvbSIsImV4cCI6MTY3NjYwODk1NSwiaWF0IjoxNjc2NTcyOTU1fQ.HZOvyTZwJ337A8hkraHBqcYhq1qtjaKafuNQdgYjqzs`,
+              Authorization: `Bearer ${token}`,
             },
           }).then( ( response ) => {
             setListDesBiens( response.data)
@@ -27,7 +30,7 @@ export default function BienListing(){
             .catch()
        
     }, [])
-    
+
     return(
         <>
         <Header/>

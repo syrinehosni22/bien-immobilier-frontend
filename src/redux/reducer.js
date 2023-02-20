@@ -1,5 +1,8 @@
+import {persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
 const initialState = {
-    user: null,
+    token: null,
     role: null,
   };
   
@@ -8,7 +11,7 @@ const initialState = {
       case 'LOGIN':
         return {
           ...state,
-          token: action.user,
+          token: action.token,
           role: action.role,
         };
       case 'LOGOUT':
@@ -21,3 +24,10 @@ const initialState = {
         return state;
     }
   };
+  const persistConfig = {
+    key: 'root',
+    storage,
+  }
+  
+  export const persistedReducer = persistReducer(persistConfig, userReducer)
+  

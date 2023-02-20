@@ -13,8 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link } from '@mui/material';
-import { useSelector } from 'react-redux';
-
+import {store} from '../../redux/store'
 
 const drawerWidth = 240;
 const navItems = [{title:"Liste des Biens",path:"/"}, {title:"Ajouter un Bien",path:"/addBien"},{title:"Listes des clients ",path:"/clients"},{title:"Listes des agents ",path:"/agents"},{title:"Login ",path:"/login"}];
@@ -24,7 +23,8 @@ const navItemsAdmin = [{title:"Liste des Biens",path:"/"}, {title:"Ajouter un Bi
 function Header(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const ROLE=useSelector(state => state.role);
+  const role=store.getState().role;
+  console.log("role",role);
 
 
   const handleDrawerToggle = () => {
@@ -38,7 +38,7 @@ function Header(props) {
       </Typography>
       <Divider />
       <List>
-        {ROLE=="admin"?
+        {role=="admin"?
         navItemsAdmin.map((item,index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
