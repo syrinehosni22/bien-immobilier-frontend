@@ -16,8 +16,9 @@ import { Link } from '@mui/material';
 import {store} from '../../redux/store'
 
 const drawerWidth = 240;
-const navItems = [{title:"Liste des Biens",path:"/"}, {title:"Ajouter un Bien",path:"/addBien"},{title:"Listes des clients ",path:"/clients"},{title:"Listes des agents ",path:"/agents"},{title:"Login ",path:"/login"}];
-const navItemsAdmin = [{title:"Liste des Biens",path:"/"}, {title:"Ajouter un Bien",path:"/addBien"},{title:"Listes des clients ",path:"/clients"},{title:"Listes des agents ",path:"/agents"}];
+const navItemsClient = [{title:"Liste des Biens",path:"/"}];
+const navItemsAgent = [{title:"Liste des Biens",path:"/"},{title:"Listes des clients ",path:"/clients"}];
+const navItemsAdmin = [{title:"Liste des Biens",path:"/"},{title:"Listes des clients ",path:"/clients"},{title:"Listes des agents ",path:"/agents"}];
 
 
 function Header(props) {
@@ -38,15 +39,24 @@ function Header(props) {
       </Typography>
       <Divider />
       <List>
-        {role=="admin"?
+        {role=="admin"&&
         navItemsAdmin.map((item,index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
               <ListItemText primary={item.title} />
             </ListItemButton>
           </ListItem>
-        )):
-        navItems.map((item,index) => (
+        ))}
+        {role=="agent"&& 
+        navItemsAgent.map((item,index) => (
+          <ListItem key={index} disablePadding>
+            <ListItemButton sx={{ textAlign: 'center' }}>
+              <ListItemText primary={item.title} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+        {role=="client"&& 
+        navItemsClient.map((item,index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
               <ListItemText primary={item.title} />
@@ -80,11 +90,30 @@ function Header(props) {
            Gestion des Bien immobiliers
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item,index) => (
-              <Link key={index} sx={{ color: '#fff' }} href={item.path}>
-                {item.title}
-              </Link>
-            ))}
+          {role=="admin"&&
+        navItemsAdmin.map((item,index) => (
+          <ListItem key={index} disablePadding>
+            <ListItemButton sx={{ textAlign: 'center' }}>
+              <ListItemText primary={item.title} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+        {role=="agent"&& 
+        navItemsAgent.map((item,index) => (
+          <ListItem key={index} disablePadding>
+            <ListItemButton sx={{ textAlign: 'center' }}>
+              <ListItemText primary={item.title} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+        {role=="client"&& 
+        navItemsClient.map((item,index) => (
+          <ListItem key={index} disablePadding>
+            <ListItemButton sx={{ textAlign: 'center' }}>
+              <ListItemText primary={item.title} />
+            </ListItemButton>
+          </ListItem>
+        ))}
           </Box>
         </Toolbar>
       </AppBar>
