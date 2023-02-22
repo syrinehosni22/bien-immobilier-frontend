@@ -16,12 +16,33 @@
 
 .list-des-clients>.client-listing-component {
   box-shadow: 10px 5px 5px 5px gray;
-  border-radius: 5%;
+  border-radius: 1%;
   padding: 10px;
+  height: 100px;
+  width:200px ;
 }
 
 .agents-listing-component {
   box-shadow: 10px 5px 5px 5px gray;
-  border-radius: 5%;
+  border-radius: 1%;
   padding: 10px;
+  height: 100px;
+  width:200px ;
+}
+.container{
+  max-width: 1000px;
+  margin: auto;
+  width: 100%;
+}
+*{
+  font-family: "roboto, sans-serif";
+
+}
+.video-container{
+  position:relative ;
+  margin-right:-25px;
+  margin-left:-25px;
+}
+.video {
+  width:100%;
 }

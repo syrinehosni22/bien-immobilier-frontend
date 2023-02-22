@@ -1,13 +1,12 @@
-import React from 'react'
+import React from "react";
 
 export default function Agent(props) {
-    const {id,name,profession} = props;
+  const { id, name, email, numero } = props;
   return (
     <div className="agents-listing-component">
-        <div>name:{name}</div>
-        <div>profession:{profession}</div>
+      <div>name:{name}</div>
+      <div>email:{email}</div>
+      <div>numéro:{numero}</div>
     </div>
-  )
+  );
 }
-
-

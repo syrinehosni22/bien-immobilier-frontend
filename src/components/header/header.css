@@ -1,0 +1,58 @@
+.nav-list {
+  color: #000;
+  font-size: 20px;
+  list-style-type: none;
+  float: right;
+}
+.nav-item{
+  text-decoration: none;
+}
+.navContainer {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  padding-top: 25px;
+  width: 100%;
+  background-color: transparent;
+  z-index: 1;
+}
+.nav-title{
+  list-style-type: none;
+   font-size: 20px;
+
+}
+.bar{
+  background-color: #000;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items:center;
+  padding-right: calc((100vw - 1000px)/2);
+  padding-left: calc((100vw - 1000px)/2) ;
+}
+.css-i4bv87-MuiSvgIcon-root {
+color:orange;
+}
+.bar-element {
+  color:white;
+  margin-right:10px;
+  margin-left: 5px;
+}
+.bar-elment-end{
+  position: absolute;
+  top: 12px;
+  right: 100px;
+  display :flex}
+.bar-elment-end .MuiSvgIcon-root{
+  color:white;
+  margin-right:10px;
+  margin-left: 5px;
+}
+.navContainer.container .first{
+padding: 0;
+}
+.MuiCard-root.bien{
+  margin-left: 0;
+}

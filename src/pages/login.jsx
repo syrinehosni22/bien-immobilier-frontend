@@ -24,7 +24,7 @@ export default function  LoginForm  () {
         {
             console.log(response.data.jwt,response.data.user.role.libelle);
             store.dispatch(login(response.data.jwt, response.data.user.role.libelle));
-            navigate('/');
+            navigate('/lesBiens');
 
 
         }
