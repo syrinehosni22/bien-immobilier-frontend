@@ -46,3 +46,8 @@
 .video {
   width:100%;
 }
+.login-form {
+margin: auto;
+max-width: 200px;
+text-align: center;
+}
