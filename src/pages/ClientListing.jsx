@@ -5,6 +5,7 @@ import { loadAllBien } from "../xhr/BienRequets";
 import Client from "../components/Client/Client";
 import { store } from "../redux/store";
 import axios from "axios";
+import Button from "@mui/material/Button";
 
 export default function ClientListing() {
   const [clientList, setClientList] = useState([]);
@@ -26,6 +27,9 @@ export default function ClientListing() {
     <div className="container">
       <Header />
       <h2>List des clients</h2>
+      <Button variant="outlined" href="/addClient" className="primary-button">
+        Ajouter un client
+      </Button>
       <div className="list-des-clients">
         {clientList
           .filter((b) => b.role.id == 3)

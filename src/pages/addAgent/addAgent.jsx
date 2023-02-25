@@ -9,67 +9,55 @@ import { useNavigate } from "react-router-dom";
 
 import React, { useEffect } from "react";
 import Header from "../../components/header/header";
-import Bien from "../../components/listDesBiens/bien/Bien";
-import { saveNewBien } from "../../xhr/BienRequets";
 
-export default function AddBien() {
-  const [bien, setBien] = React.useState({});
-  const [typeBien, setTypeBien] = React.useState({});
-  const [users, setUsers] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(true);
+export default function AddAgent() {
+  const [Role, setRole] = React.useState({});
+  const [User, setUser] = React.useState([]);
+  // const [isLoading, setIsLoading] = React.useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = store.getState().token;
-
-    async function fetchData() {
-      const response = await fetch("http://localhost:8088/api/user/find", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const json = await response.json();
-      setUsers(json);
-      console.log("json", users);
-      setIsLoading(false);
-    }
-    fetchData();
-    //axios
-    // .get("http://localhost:8088/api/typeBienImmobilier/findAll")
-    // .then(setTypeBien(response.data));
+    // const token = store.getState().token;
+    // async function fetchData() {
+    //   const response = await fetch("http://localhost:8088/api/role/find", {
+    //     headers: {
+    //       Authorization: `Bearer ${token}`,
+    //     },
+    //   });
+    //   const json = await response.json();
+    //   setUsers(json);
+    //   console.log("json", roles);
+    //   setIsLoading(false);
+    // }
+    // fetchData();
   }, []);
   const HandleChange = (e) => {
-    const newBien = { ...bien, [e.target.name]: e.target.value };
-    setBien(newBien);
-  };
-  const HandleChangeSelect = (e) => {
-    console.log("event.target.name", e.target.name);
-    const newBien = { ...bien, [e.target.name]: { id: e.target.value } };
-    setBien(newBien);
+    const newUser = { ...User, [e.target.name]: e.target.value };
+    setUser(newUser);
   };
   const HandleSave = () => {
     const token = store.getState().token;
 
-    let newBien = { ...bien, typeImmobilier: { id: 1 }, status: { id: 1 } };
-    console.log("save", newBien);
+    let newUser = { ...User, role: { id: 3 } };
+    console.log("save", newUser);
     axios
-      .post("http://localhost:8088/api/bienImmobilier/Add", newBien, {
+      .post("http://localhost:8088/api/user/add/" + "3", newUser, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
         console.log(response.data);
-        navigate("/lesBiens");
+        navigate("/agents");
       });
   };
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // }
   return (
     <>
       <Header />
-      <h2>ajouter un bien</h2>
+      <h2>ajouter un Agent</h2>
 
       <Box
         component="form"
@@ -80,34 +68,18 @@ export default function AddBien() {
         autoComplete="off"
       >
         <div>
-          <TextField
+          {/* <TextField
             id="standard-basic"
             variant="standard"
-            label="Name"
-            name="name"
+            label="Activated"
+            name="activated"
             onChange={HandleChange}
-          />
+          /> */}
           <TextField
             id="standard-basic"
             variant="standard"
-            label="Nombre Piece"
-            name="nombrePiece"
-            onChange={HandleChange}
-          />
-        </div>
-        <div>
-          <TextField
-            id="standard-basic"
-            variant="standard"
-            label="Addresse"
-            name="adresse"
-            onChange={HandleChange}
-          />
-          <TextField
-            id="standard-basic"
-            variant="standard"
-            label="Prix"
-            name="prix"
+            label="CIN"
+            name="cin"
             onChange={HandleChange}
           />
         </div>
@@ -115,36 +87,35 @@ export default function AddBien() {
           <TextField
             id="standard-basic"
             variant="standard"
-            label="Description"
-            multiline
-            rows={4}
-            name="description"
+            label="Email"
+            name="email"
+            onChange={HandleChange}
+          />
+          <TextField
+            id="standard-basic"
+            variant="standard"
+            label="Nom"
+            name="first_name"
             onChange={HandleChange}
           />
         </div>
         <div>
-          {/* <InputLabel
+          <TextField
             id="standard-basic"
             variant="standard"
-            label="type immmobilier"
-            multiline
-            rows={4}
-            name="typeImmobilier"
-          >
-            Type Immobilier
-          </InputLabel>
-          <Select
-            labelId="typeImmobilier"
-            id="typeImmobilier"
-            value={age}
-            label="typeImmobilier"
-            onChange={handleChange}
-          >
-            {typeImmobiliers.map((t) => {
-              <MenuItem value={10}>{t.name}</MenuItem>;
-            })}
-          </Select> */}
-
+            label="Prénom"
+            name="last_name"
+            onChange={HandleChange}
+          />
+          <TextField
+            id="standard-basic"
+            variant="standard"
+            label="phone_number"
+            name="télephone"
+            onChange={HandleChange}
+          />
+        </div>
+        {/*<div>
           <InputLabel
             id="standard-basic"
             variant="standard"
@@ -167,15 +138,14 @@ export default function AddBien() {
               return <MenuItem value={u.id}>{u.firstName}</MenuItem>;
             })}
           </Select>
-        </div>
+        </div> */}
         <div>
           <TextField
             id="standard-basic"
             variant="standard"
-            label="status"
-            multiline
-            rows={4}
-            name="status"
+            label="Password"
+            type="password"
+            name="password"
             onChange={HandleChange}
           />
         </div>

@@ -6,6 +6,7 @@ import { loadAllBien } from "../xhr/BienRequets";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { store } from "../redux/store";
+import Button from "@mui/material/Button";
 
 export default function BienListing() {
   // const listBiens=[{id:1,name:"bien",description:"somedescription ttttttttttttttttttttttttttttttttt",img:"https://www.shutterstock.com/fr/image-photo/residential-building-public-green-park-during-382666645"},
@@ -37,6 +38,9 @@ export default function BienListing() {
       <AgencePresentaion />
       <div className="container">
         <h2>List des Biens</h2>
+        <Button variant="outlined" href="/addBien" className="primary-button">
+          Ajouter un bien
+        </Button>
         <div className="list-des-biens">
           {listDesBiens.map((b) => (
             <Bien

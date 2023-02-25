@@ -60,7 +60,11 @@ export default function LoginForm() {
         />
       </div>
 
-      <Button variant="outlined" onClick={handleLogin}>
+      <Button
+        variant="outlined"
+        className="primary-color"
+        onClick={handleLogin}
+      >
         Login
       </Button>
     </Box>

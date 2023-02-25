@@ -13,6 +13,8 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "./redux/store";
+import AddUser from "./pages/addClient/addClient";
+import AddClient from "./pages/addClient/addClient";
 
 function App() {
   return (
@@ -24,8 +26,9 @@ function App() {
               <Route exact path="/" element={<LoginForm />} />
               <Route exact path="/lesBiens" element={<BienListing />} />
               <Route path="bienDetails/:bienId" element={<BienDetails />} />
-              <Route path="addBien" element={<AddBien />} />
+              <Route path="/addBien" element={<AddBien />} />
               <Route path="/clients" element={<ClientListing />} />
+              <Route path="/addClient" element={<AddClient />} />
               <Route path="/agents" element={<AgentListing />} />
               <Route path="/login" element={<LoginForm />} />
             </Routes>

@@ -25,6 +25,9 @@ export default function AgentListing() {
     <div className="container">
       <Header />
       <h2>List des agents</h2>
+      <Button variant="outlined" href="/addAgent" className="primary-button">
+        Ajouter un agent
+      </Button>
       <div className="list-des-agents">
         {ListAgent.filter((b) => b.role.id == 2).map((a) => (
           <Agent
