@@ -38,10 +38,10 @@ export default function AddAgent() {
   const HandleSave = () => {
     const token = store.getState().token;
 
-    let newUser = { ...User, role: { id: 3 } };
+    let newUser = { ...User, role: { id: 2 } };
     console.log("save", newUser);
     axios
-      .post("http://localhost:8088/api/user/add/" + "3", newUser, {
+      .post("http://localhost:8088/api/user/add/" + "2", newUser, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -15,6 +15,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "./redux/store";
 import AddUser from "./pages/addClient/addClient";
 import AddClient from "./pages/addClient/addClient";
+import AddAgent from "./pages/addAgent/addAgent";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route path="/clients" element={<ClientListing />} />
               <Route path="/addClient" element={<AddClient />} />
               <Route path="/agents" element={<AgentListing />} />
+              <Route path="/addAgent" element={<AddAgent />} />
               <Route path="/login" element={<LoginForm />} />
             </Routes>
           </BrowserRouter>
