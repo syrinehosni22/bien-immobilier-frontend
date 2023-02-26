@@ -16,6 +16,9 @@ import { persistor } from "./redux/store";
 import AddUser from "./pages/addClient/addClient";
 import AddClient from "./pages/addClient/addClient";
 import AddAgent from "./pages/addAgent/addAgent";
+import Reservation from "./pages/reservation/reservation";
+import Reclamation from "./pages/reclamation/reclamation";
+import ReservationListing from "./pages/reservationListing/reservationListing";
 
 function App() {
   return (
@@ -32,6 +35,9 @@ function App() {
               <Route path="/addClient" element={<AddClient />} />
               <Route path="/agents" element={<AgentListing />} />
               <Route path="/addAgent" element={<AddAgent />} />
+              <Route path="/reclamation" element={<Reclamation />} />
+              <Route path="/reservation" element={<Reservation />} />
+              <Route path="/lesReservations" element={<ReservationListing />} />
               <Route path="/login" element={<LoginForm />} />
             </Routes>
           </BrowserRouter>

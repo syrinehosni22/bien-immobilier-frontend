@@ -54,4 +54,8 @@ text-align: center;
 .MuiButtonBase-root.MuiButton-root.primary-button {
   color:gray;
   border-block-color: gray;
+  margin-bottom: 10px;
+}
+.select-button {
+  display: flex;
 }

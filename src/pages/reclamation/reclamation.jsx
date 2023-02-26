@@ -6,28 +6,29 @@ import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import { store } from "../../redux/store";
 import { useNavigate } from "react-router-dom";
+// import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 
 import React, { useEffect } from "react";
 import Header from "../../components/header/header";
 
-export default function AddClient() {
-  const [roles, setRoles] = React.useState([]);
+export default function Reclamation() {
+  const [reclamation, setReclamation] = React.useState([]);
   const [User, setUser] = React.useState([]);
   // const [isLoading, setIsLoading] = React.useState(true);
   const navigate = useNavigate();
 
   const HandleChange = (e) => {
-    const newUser = { ...User, [e.target.name]: e.target.value };
-    setUser(newUser);
+    const newReclamation = { ...User, [e.target.name]: e.target.value };
+    setReclamation(newReclamation);
   };
 
   const HandleSave = () => {
     const token = store.getState().token;
 
-    let newUser = { ...User, role: { id: 3 } };
-    console.log("save", newUser);
+    let setReclamation = { ...reclamation, role: { id: 3 } };
+    console.log("save", setReclamation);
     axios
-      .post("http://localhost:8088/api/user/add/" + "3", newUser, {
+      .post("http://localhost:8088/api/reservation/Add/", setReclamation, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -55,58 +56,24 @@ export default function AddClient() {
           <TextField
             id="standard-basic"
             variant="standard"
-            label="Nom"
-            name="first_name"
-            onChange={HandleChange}
-          />
-          <TextField
-            id="standard-basic"
-            variant="standard"
-            label="Prénom"
-            name="last_name"
+            label="montant"
+            name="montant"
             onChange={HandleChange}
           />
         </div>
         <div>
-          <TextField
+          {/* <MuiPickersUtilsProvider
             id="standard-basic"
             variant="standard"
             label="Email"
             name="email"
             onChange={HandleChange}
           />
-          <TextField
+          <MuiPickersUtilsProvider
             id="standard-basic"
             variant="standard"
-            label="Password"
-            type="password"
-            name="password"
-            onChange={HandleChange}
-          />
-        </div>
-        <div>
-          <TextField
-            id="standard-basic"
-            variant="standard"
-            label="CIN"
-            name="cin"
-            onChange={HandleChange}
-          />
-          <TextField
-            id="standard-basic"
-            variant="standard"
-            label="phone_number"
-            name="télephone"
-            onChange={HandleChange}
-          />
-        </div>
-
-        <div>
-          {/* <TextField
-            id="standard-basic"
-            variant="standard"
-            label="Activated"
-            name="activated"
+            label="date fin"
+            name="date_fin"
             onChange={HandleChange}
           /> */}
         </div>

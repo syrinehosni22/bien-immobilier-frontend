@@ -16,21 +16,6 @@ export default function AddAgent() {
   // const [isLoading, setIsLoading] = React.useState(true);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // const token = store.getState().token;
-    // async function fetchData() {
-    //   const response = await fetch("http://localhost:8088/api/role/find", {
-    //     headers: {
-    //       Authorization: `Bearer ${token}`,
-    //     },
-    //   });
-    //   const json = await response.json();
-    //   setUsers(json);
-    //   console.log("json", roles);
-    //   setIsLoading(false);
-    // }
-    // fetchData();
-  }, []);
   const HandleChange = (e) => {
     const newUser = { ...User, [e.target.name]: e.target.value };
     setUser(newUser);
@@ -51,9 +36,7 @@ export default function AddAgent() {
         navigate("/agents");
       });
   };
-  // if (isLoading) {
-  //   return <div>Loading...</div>;
-  // }
+
   return (
     <>
       <Header />
@@ -68,18 +51,18 @@ export default function AddAgent() {
         autoComplete="off"
       >
         <div>
-          {/* <TextField
-            id="standard-basic"
-            variant="standard"
-            label="Activated"
-            name="activated"
-            onChange={HandleChange}
-          /> */}
           <TextField
             id="standard-basic"
             variant="standard"
-            label="CIN"
-            name="cin"
+            label="Nom"
+            name="first_name"
+            onChange={HandleChange}
+          />
+          <TextField
+            id="standard-basic"
+            variant="standard"
+            label="Prénom"
+            name="last_name"
             onChange={HandleChange}
           />
         </div>
@@ -94,8 +77,9 @@ export default function AddAgent() {
           <TextField
             id="standard-basic"
             variant="standard"
-            label="Nom"
-            name="first_name"
+            label="Password"
+            type="password"
+            name="password"
             onChange={HandleChange}
           />
         </div>
@@ -103,8 +87,8 @@ export default function AddAgent() {
           <TextField
             id="standard-basic"
             variant="standard"
-            label="Prénom"
-            name="last_name"
+            label="CIN"
+            name="cin"
             onChange={HandleChange}
           />
           <TextField
@@ -112,40 +96,6 @@ export default function AddAgent() {
             variant="standard"
             label="phone_number"
             name="télephone"
-            onChange={HandleChange}
-          />
-        </div>
-        {/*<div>
-          <InputLabel
-            id="standard-basic"
-            variant="standard"
-            label="utilisateur"
-            multiline
-            rows={4}
-            name="user"
-          >
-            Utilisateur
-          </InputLabel>
-          <Select
-            labelId="user"
-            id="user"
-            value={users[0]}
-            label="utilisateur"
-            onChange={HandleChangeSelect}
-            name="user"
-          >
-            {users.map((u) => {
-              return <MenuItem value={u.id}>{u.firstName}</MenuItem>;
-            })}
-          </Select>
-        </div> */}
-        <div>
-          <TextField
-            id="standard-basic"
-            variant="standard"
-            label="Password"
-            type="password"
-            name="password"
             onChange={HandleChange}
           />
         </div>
