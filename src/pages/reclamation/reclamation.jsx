@@ -42,7 +42,7 @@ export default function Reclamation() {
   return (
     <>
       <Header />
-      <h2>ajouter un Client</h2>
+      <h2>ajouter une reclamtion</h2>
 
       <Box
         component="form"
