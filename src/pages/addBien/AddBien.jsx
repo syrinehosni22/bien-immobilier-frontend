@@ -195,7 +195,7 @@ export default function AddBien() {
             label="status"
             name="status"
           >
-            Type Immobilier
+            Status
           </InputLabel>
           <Select
             id="typeImmobilier"
