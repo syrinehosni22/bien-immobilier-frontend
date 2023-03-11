@@ -56,8 +56,8 @@ export default function Reclamation() {
           <TextField
             id="standard-basic"
             variant="standard"
-            label="montant"
-            name="montant"
+            label="description"
+            name="description"
             onChange={HandleChange}
           />
         </div>
