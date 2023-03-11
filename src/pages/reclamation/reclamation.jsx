@@ -12,31 +12,68 @@ import React, { useEffect } from "react";
 import Header from "../../components/header/header";
 
 export default function Reclamation() {
-  const [reclamation, setReclamation] = React.useState([]);
-  const [User, setUser] = React.useState([]);
+  const [reclamation, setReclamation] = React.useState({});
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [users, setUsers] = React.useState([]);
+  const [status, setStatus] = React.useState([]);
   // const [isLoading, setIsLoading] = React.useState(true);
   const navigate = useNavigate();
+  useEffect(() => {
+    const token = store.getState().token;
+
+    async function fetchData() {
+      const response = await fetch("http://localhost:8088/api/user/find", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const json = await response.json();
+      setUsers(json);
+      console.log("users", users);
+
+      const responseS = await fetch(
+        "http://localhost:8088/api/status/findAll",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const jsonS = await responseS.json();
+      setStatus(jsonS);
+      console.log("json", jsonS);
+      setIsLoading(false);
+    }
+    fetchData();
+  }, []);
 
   const HandleChange = (e) => {
-    const newReclamation = { ...User, [e.target.name]: e.target.value };
+    const newReclamation = { ...reclamation, [e.target.name]: e.target.value };
     setReclamation(newReclamation);
+    console.log("set", reclamation);
   };
 
   const HandleSave = () => {
     const token = store.getState().token;
 
-    let setReclamation = { ...reclamation, role: { id: 3 } };
-    console.log("save", setReclamation);
+    console.log("save", reclamation);
     axios
-      .post("http://localhost:8088/api/reservation/Add/", setReclamation, {
+      .post("http://localhost:8088/api/reclamation/Add/", reclamation, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then((response) => {
         console.log(response.data);
-        navigate("/clients");
+        navigate("/reclamations");
       });
+  };
+  const HandleChangeSelect = (e) => {
+    const newReclamation = {
+      ...reclamation,
+      [e.target.name]: { id: e.target.value },
+    };
+    setReclamation(newReclamation);
   };
 
   return (
@@ -60,22 +97,53 @@ export default function Reclamation() {
             name="description"
             onChange={HandleChange}
           />
-        </div>
-        <div>
-          {/* <MuiPickersUtilsProvider
+          <TextField
             id="standard-basic"
             variant="standard"
-            label="Email"
-            name="email"
+            label="type"
+            name="type"
             onChange={HandleChange}
           />
-          <MuiPickersUtilsProvider
+        </div>
+        <div className="select-button">
+          <InputLabel
             id="standard-basic"
             variant="standard"
-            label="date fin"
-            name="date_fin"
-            onChange={HandleChange}
-          /> */}
+            label="status"
+            name="status"
+          >
+            Status
+          </InputLabel>
+          <Select
+            id="typeImmobilier"
+            value={status[0]}
+            name="status"
+            label="status"
+            onChange={HandleChangeSelect}
+          >
+            {status.map((t) => {
+              return <MenuItem value={t.id}>{t.description}</MenuItem>;
+            })}
+          </Select>
+          <InputLabel
+            id="standard-basic"
+            variant="standard"
+            label="user"
+            name="user"
+          >
+            Users
+          </InputLabel>
+          <Select
+            id="user"
+            value={users[0]}
+            name="user"
+            label="user"
+            onChange={HandleChangeSelect}
+          >
+            {users.map((t) => {
+              return <MenuItem value={t.id}>{t.firstName}</MenuItem>;
+            })}
+          </Select>
         </div>
         <div>
           <Button variant="contained" onClick={HandleSave}>

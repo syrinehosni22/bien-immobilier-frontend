@@ -9,8 +9,6 @@ import { useNavigate } from "react-router-dom";
 
 import React, { useEffect } from "react";
 import Header from "../../components/header/header";
-import Bien from "../../components/listDesBiens/bien/Bien";
-import { saveNewBien } from "../../xhr/BienRequets";
 
 export default function AddBien() {
   const [bien, setBien] = React.useState({});
@@ -199,7 +197,7 @@ export default function AddBien() {
           </InputLabel>
           <Select
             id="typeImmobilier"
-            value={typeBiens[0]}
+            value={status[0]}
             name="status"
             label="status"
             onChange={HandleChangeSelect}

@@ -19,6 +19,7 @@ import AddAgent from "./pages/addAgent/addAgent";
 import Reservation from "./pages/reservation/reservation";
 import Reclamation from "./pages/reclamation/reclamation";
 import ReservationListing from "./pages/reservationListing/reservationListing";
+import ReclamationListing from "./pages/ReclamationListing";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
               <Route path="/reclamation" element={<Reclamation />} />
               <Route path="/reservation" element={<Reservation />} />
               <Route path="/lesReservations" element={<ReservationListing />} />
+              <Route path="/reclamations" element={<ReclamationListing />} />
               <Route path="/login" element={<LoginForm />} />
             </Routes>
           </BrowserRouter>
